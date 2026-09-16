@@ -29,6 +29,9 @@ jobs:
 
       - name: Package Desktop Application
         run: npm run package
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release & Upload Artifacts
         uses: softprops/action-gh-release@v2

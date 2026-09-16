@@ -15,6 +15,7 @@
     "appId": "com.godot.versionmanager",
     "productName": "Godot Version Manager",
     "icon": "build/icon.png",
+    "publish": null,
     "files": [
       "dist/**/*",
       "src/main/**/*",
