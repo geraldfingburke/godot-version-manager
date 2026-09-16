@@ -5,10 +5,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Build outputs
+# Build outputs & generated build setup files
 dist/
 release/
 build/
+generate-icon.js
+cascading_logo.svg
+src/renderer/public/cascading_logo.svg
 
 # Temp files
 *.log
