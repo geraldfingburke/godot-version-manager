@@ -10,8 +10,8 @@ An Electron desktop application for downloading, managing, and launching multipl
 
 ## Downloads
 
-- **[Installer (`Godot Version Manager - Installer.exe`)](https://github.com/geraldfingburke/godot-version-manager/releases/latest/download/Godot%20Version%20Manager%20-%20Installer.exe)**
-- **[Portable (`Godot Version Manager - Portable.exe`)](https://github.com/geraldfingburke/godot-version-manager/releases/latest/download/Godot%20Version%20Manager%20-%20Portable.exe)**
+- **[Installer (`Godot Version Manager - Installer.exe`)](https://github.com/geraldfingburke/godot-version-manager/releases/latest/download/Godot.Version.Manager.-.Installer.exe)**
+- **[Portable (`Godot Version Manager - Portable.exe`)](https://github.com/geraldfingburke/godot-version-manager/releases/latest/download/Godot.Version.Manager.-.Portable.exe)**
 
 ---
 
