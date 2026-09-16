@@ -1,6 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const sharp = require('sharp');
+const pngToIcoModule = require('png-to-ico');
+const pngToIco = pngToIcoModule.default || pngToIcoModule;
 
 async function generateCascadingLogo() {
   const godotSvgContent = fs.readFileSync(path.join(__dirname, 'Godot_icon.svg'), 'utf8');
@@ -37,7 +39,8 @@ async function generateCascadingLogo() {
 
   const svgPath = path.join(__dirname, 'cascading_logo.svg');
   const publicSvgPath = path.join(__dirname, 'src/renderer/public/cascading_logo.svg');
-  const buildIconPath = path.join(__dirname, 'build/icon.png');
+  const buildPngPath = path.join(__dirname, 'build/icon.png');
+  const buildIcoPath = path.join(__dirname, 'build/icon.ico');
 
   fs.writeFileSync(svgPath, cascadingSvg);
   fs.ensureDirSync(path.join(__dirname, 'src/renderer/public'));
@@ -45,11 +48,14 @@ async function generateCascadingLogo() {
 
   fs.ensureDirSync(path.join(__dirname, 'build'));
   await sharp(Buffer.from(cascadingSvg))
-    .resize(512, 512)
+    .resize(256, 256)
     .png()
-    .toFile(buildIconPath);
+    .toFile(buildPngPath);
 
-  console.log('Successfully generated cascading_logo.svg and build/icon.png!');
+  const icoBuf = await pngToIco([buildPngPath]);
+  fs.writeFileSync(buildIcoPath, icoBuf);
+
+  console.log('Successfully generated cascading_logo.svg, build/icon.png, and build/icon.ico!');
 }
 
 generateCascadingLogo().catch(err => {
