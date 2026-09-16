@@ -1,0 +1,65 @@
+{
+  "name": "godot-version-manager",
+  "version": "1.0.0",
+  "description": "An Electron-based version manager for Godot Engine",
+  "main": "src/main/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "package": "node generate-icon.js && vite build && electron-builder",
+    "preview": "vite preview",
+    "start": "electron ."
+  },
+  "build": {
+    "appId": "com.godot.versionmanager",
+    "productName": "Godot Version Manager",
+    "icon": "build/icon.png",
+    "files": [
+      "dist/**/*",
+      "src/main/**/*",
+      "src/preload/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "artifactName": "Godot Version Manager - Installer.${ext}"
+    },
+    "portable": {
+      "artifactName": "Godot Version Manager - Portable.${ext}"
+    }
+  },
+  "keywords": [
+    "godot",
+    "version-manager",
+    "electron",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "fs-extra": "^11.2.0",
+    "lucide-react": "^0.446.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "electron": "^32.1.0",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.47",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.4.8"
+  }
+}
